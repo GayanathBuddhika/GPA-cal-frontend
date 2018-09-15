@@ -1,53 +1,77 @@
 <h2>User Registration Form</h2>
 <div class="container">
+  <div class="jumbotron">
+    <form action="" #frm="ngForm">
+    <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
+    <div class="col-sm-10">
+       <select class="form-control" id="sel1" name="faculty" (change)="getDepartments($event.target.value)">
+      <option *ngFor="let faculty of facultyList" [value]="faculty.id"  > {{faculty.faculty_name}}</option>
+      </select>
+    </div>
+   </div>
+   <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="sel2">
+        <option *ngFor="let department of departmentList" [value]="department.id"  > {{department.dep_name}}</option>
+
+      </select>
+    </div>
+    </div>
+    <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Digree Program</label>
+    <div class="col-sm-10">
+       <select class="form-control" id="sel3">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+    </div>
+     </form>
+  </div>
+
+</div>
+
+<div class="container">
  <div class="jumbotron">
 <form>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">First name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+      <input type="text" class="form-control" id="inputEmail1" placeholder="firstname">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Last name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+      <input type="text" class="form-control" id="inputEmail2" placeholder="last name">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Contac</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Contact number</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="contact number">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">EP Number</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Ep number">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail5" placeholder="Email">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <label for="inputPassword3" class="col-sm-2 col-form-label">login number</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword6" placeholder="login number" readonly>
     </div>
   </div>
   <div class="form-group row">
@@ -59,4 +83,6 @@
 
 
  </div>
+<button (click)="print()">name</button>
+ {{frm.value|json}}
 </div>

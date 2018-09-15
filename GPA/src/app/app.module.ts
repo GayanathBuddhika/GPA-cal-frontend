@@ -7,11 +7,17 @@ import { GpaviewComponent } from './component/gpaview/gpaview.component';
 import { ResultviewComponent } from './component/resultview/resultview.component';
 import { ResultEnterComponent } from './component/result-enter/result-enter.component';
 import { UserRegisterComponent } from './component/user-register/user-register.component';
+import { HomeComponent } from './component/home/home.component';
+import { FacultyService} from './shared_service/faculty.service';
+import {HttpClientModule} from '../../node_modules/@angular/common/http';
+import {FormsModule} from '@angular/forms'
+
+
 
 const appRoutes: Routes=[
 {path: 'gpa', component : GpaviewComponent},
 {path: 'result', component : ResultviewComponent },
-{path: 'home', component :  AppComponent  },
+{path: 'home', component :  HomeComponent },
 {path: 'result_enter', component : ResultEnterComponent},
 {path: 'user_register', component : UserRegisterComponent}
 
@@ -24,13 +30,16 @@ const appRoutes: Routes=[
     GpaviewComponent,
     ResultviewComponent,
     ResultEnterComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    HomeComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
-    BrowserModule
+     BrowserModule,
+     RouterModule.forRoot(appRoutes),
+     HttpClientModule,
+     FormsModule
   ],
-  providers: [],
+  providers: [FacultyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
