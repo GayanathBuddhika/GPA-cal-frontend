@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '../../../node_modules/@angular/common/http';
+import { Mark } from "src/app/marks";
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class FacultyService {
-  // private baseUrl: String = 'http://localhost:8080/faculty';
-  // private headers = new Headers({ 'Content-type': 'application/json' });
-  // private options = new RequestOptions({ headers: this.headers });
+  
 
   constructor(private http:HttpClient) { }
 
@@ -19,5 +19,8 @@ export class FacultyService {
   }
   getDegreeProgrammes(degId){
     return this.http.get<any>("api/degreeprograms/"+degId);
+  }
+  enterMark(mark: Mark[]){
+    return this.http.post<any>("api/addMarks/",mark);
   }
 }

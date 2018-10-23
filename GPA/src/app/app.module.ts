@@ -9,8 +9,10 @@ import { ResultEnterComponent } from './component/result-enter/result-enter.comp
 import { UserRegisterComponent } from './component/user-register/user-register.component';
 import { HomeComponent } from './component/home/home.component';
 import { FacultyService} from './shared_service/faculty.service';
+import { SubjectService} from './shared_service/subject.service';
 import {HttpClientModule} from '../../node_modules/@angular/common/http';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { SubjectEnterComponent } from './component/subject-enter/subject-enter.component';
 
 
 
@@ -19,7 +21,8 @@ const appRoutes: Routes=[
 {path: 'result', component : ResultviewComponent },
 {path: 'home', component :  HomeComponent },
 {path: 'result_enter', component : ResultEnterComponent},
-{path: 'user_register', component : UserRegisterComponent}
+{path: 'user_register', component : UserRegisterComponent},
+{path: 'enter_subject', component : SubjectEnterComponent}
 
 ];
 
@@ -31,7 +34,8 @@ const appRoutes: Routes=[
     ResultviewComponent,
     ResultEnterComponent,
     UserRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    SubjectEnterComponent
   ],
   imports: [
      BrowserModule,
@@ -39,7 +43,8 @@ const appRoutes: Routes=[
      HttpClientModule,
      FormsModule
   ],
-  providers: [FacultyService],
+  providers: [FacultyService,SubjectService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
