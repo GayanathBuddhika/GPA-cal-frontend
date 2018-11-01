@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { FacultyService } from '../../shared_service/faculty.service';
+import {StudentService} from '../../shared_service/student.service';
 import { Faculty } from '../../faculty';
-import { Mark } from '../../marks';
+import { Student } from '../../student';
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
@@ -11,13 +12,20 @@ export class UserRegisterComponent implements OnInit {
   private facultyList;
   private departmentList;
   private digreeList;
-  private marks = new Mark();
-  markList: Mark[] = [];
-   grade: String;
-   mark: Number;
-   stsj:number;
-   exam:number;
-  constructor(private facultyService: FacultyService) { }
+  private students= new Student();
+  private studentList:Student[]=[];
+  
+   name: string;
+   email: string;
+   ep_num:string;
+   badge:string;
+   login_num: string;
+
+  constructor(
+    private facultyService: FacultyService ,
+    private studentService: StudentService
+    
+  ) { }
   ngOnInit() {
     this.getFacultyList();
   }
@@ -25,7 +33,6 @@ export class UserRegisterComponent implements OnInit {
   ngOnChange() {
 
   }
-
   getFacultyList() {
     this.facultyService.getFaculty().subscribe(data => {
       console.log(data);
@@ -58,19 +65,33 @@ export class UserRegisterComponent implements OnInit {
     }
   }
 
-saveMarks(){
-  console.log("fuuuuuuuuuuuuuuuuuuuuuuuu");
-  console.log(this.grade);
-  console.log(this.mark);
-  this.marks.grade = this.grade;
-  this.marks.mark = this.mark;
-  this.marks.stsj=this.stsj;
-  this.marks.exam=this.exam;
-  this.markList.push(this.marks);
-  console.log(this.marks);
-  console.log("fuuuuuuuuuuuuuuuuuuuuuuuu");
-  this.facultyService.enterMark(this.markList).subscribe((markList)=>{
-    console.log(markList);
+  createNumber(){
+   this.studentService.genarateNumber().subscribe((data)=>{
+    console.log(data);
+    this.login_num=data;
+  },err=>{
+    console.log(err);
+  })
+  }
+
+saveStudent(){
+
+  this.students.name = this.name;
+  this.students.email = this.email;
+  this.students.ep_num=this.ep_num;
+  this.students.badge=this.badge;
+  this.students.login_num=this.login_num;
+  this.studentList.push(this.students);
+  console.log(this.studentList);
+  this.studentService.enterStudent(this.studentList).subscribe((data)=>{
+    console.log(data);
+  },err=>{
+    console.log(err);
+  })
+
+  this.studentService.getEmail("user_password" , this.login_num , this.email).subscribe((data)=>{
+    console.log(data);
+
   },err=>{
     console.log(err);
   })

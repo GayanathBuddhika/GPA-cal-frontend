@@ -3,20 +3,22 @@
      <div class="col-sm-5"> 
       
       <div class="jumbotron">
-    <form action="" >
+    <form #ngForm="ngForm" >
     <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
     <div >
-       <select class="form-control" id="sel1" >
-      <option  > </option>
+       <select class="form-control" id="sel1" name="faculty" (change)="getDepartment($event.target.value)">
+      <option  >select faculty </option>
+        <option *ngFor="let faculty of facultyList" [value]="faculty.id"  > {{faculty.faculty_name}}</option>
       </select>
     </div>
    </div>
    <div class="form-group ">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
     <div >
-      <select class="form-control" id="sel2">
-        <option  > </option>
+      <select class="form-control" id="sel2" name="department" (change)="getDigreePro($event.target.value)">
+        <option  > select department</option>
+        <option  *ngFor="let department of departmentList" [value]="department.id">{{department.dep_name}} </option>
       </select>
     </div>
     </div>
@@ -24,10 +26,9 @@
     <label for="inputEmail3" class="col-sm-2 col-form-label">Digree Program</label>
     <div >
        <select class="form-control" id="sel3">
-        <option>Bachelor of scince (special) in information system </option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option>select digreeprogram</option>
+        <option *ngFor="let digree of digreeProList">{{digree.digpro_name}}</option>
+        
       </select>
     </div>
     </div>
@@ -81,6 +82,16 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>EP 2032</td>
+        <td>98</td>
+       
+      </tr>
+      <tr>
+        <td>EP 2032</td>
+        <td>98</td>
+       
+      </tr>
       <tr>
         <td>EP 2032</td>
         <td>98</td>

@@ -38,48 +38,47 @@
 
 <div class="container">
  <div class="jumbotron">
-<form (ngSubmit)="saveMarks()">
+<form (ngSubmit)="saveStudent()">
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Grade</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">
-      <input  class="form-control" id="grade" [(ngModel)]="grade" name="grade">
+      <input  class="form-control" id="name" [(ngModel)]="name" name="name">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Mark</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="mark" [(ngModel)]="mark" name="mark">
+      <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
     </div>
   </div>
 <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">student Subject Id</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">EP Nuber</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="stsj"[(ngModel)]="stsj" name="stsj">
+      <input type="text" class="form-control" id="ep_num"[(ngModel)]="ep_num" name="ep_num">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">exam id</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Badge Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="exam"[(ngModel)]="exam" name="exam" >
-    </div>
-  </div>
-  <!--<div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail5" placeholder="Email">
+      <input type="text" class="form-control" id="badge"[(ngModel)]="badge" name="badge" >
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">login number</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword6" placeholder="login number" readonly>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">loging number</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="login_num"[(ngModel)]="login_num" name="login_num" readonly >
+
+      <label for="inputEmail3" class="password" (click)=createNumber()>generate password</label>
+ 
     </div>
-  </div>-->
+  </div>
+ 
   <div class="form-group row">
     <div class="col-sm-10">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </div>
+  
 </form>
 
 

@@ -1,7 +1,7 @@
 export class Mark {
-    id: Number;
-    grade: String;
-    mark: Number;
+    id: number;
+    grade: string;
+    mark: number;
     stsj:number;
     exam:number;
     

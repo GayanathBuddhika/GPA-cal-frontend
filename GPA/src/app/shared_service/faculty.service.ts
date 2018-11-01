@@ -20,7 +20,5 @@ export class FacultyService {
   getDegreeProgrammes(degId){
     return this.http.get<any>("api/degreeprograms/"+degId);
   }
-  enterMark(mark: Mark[]){
-    return this.http.post<any>("api/addMarks/",mark);
-  }
+  
 }
