@@ -1,112 +1,113 @@
 <div class="container">
   <div class="row">
-     <form #frm="ngForm" (ngSubmit)="addSubject()">
-     <div> 
-      
-      <div class="jumbotron">
+    <form #frm="ngForm" (ngSubmit)="addSubject()">
+      <div>
 
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
-    <div >
-       <select class="form-control" id="sel1" (change)="getDepartmentList($event.target.value)"  >
+        <div class="jumbotron">
+
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
+            <div>
+              <select class="form-control" id="sel1" (change)="getDepartmentList($event.target.value)">
           <option>select faculty</option>
       <option  *ngFor="let faculty of facultyList" [value]="faculty.id" >{{faculty.faculty_name}} </option>
       </select>
-    </div>
-   </div>
+            </div>
+          </div>
 
-   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
-    <div >
-      <select class="form-control" id="sel2" (change)="getDegreePro($event.target.value)">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
+            <div>
+              <select class="form-control" id="sel2" (change)="getDegreePro($event.target.value)">
         <option>select department</option>
         <option *ngFor="let department of departmentList" [value]="department.id" >{{department.dep_name}} </option>
       </select>
-    </div>
-    </div>
-   
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Digree Program</label>
-    <div >
-       <select class="form-control" id="digree" [(ngModel)]="digree" name="digree">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Digree Program</label>
+            <div>
+              <select class="form-control" id="digree" [(ngModel)]="digree" name="digree">
           <option>select digreeprogram</option>
         <option *ngFor="let digree of digreeList" [ngValue]="digree">{{digree.digpro_name}}</option>
         
       </select>
-    </div>
-    </div>
+            </div>
+          </div>
 
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Year</label>
-    <div >
-       <select class="form-control" id="year" name="year" [(ngModel)]="year">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Year</label>
+            <div>
+              <select class="form-control" id="year" name="year" [(ngModel)]="year">
         <option value="1">1 st year</option>
         <option value="2">2 nd year</option>
         <option value="3">3 rd year</option>
         <option value="4">4 th year</option>
       </select>
-    </div>
-    </div>
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">semester</label>
-    <div >
-       <select class="form-control" id="sem" name="sem" [(ngModel)]="sem">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">semester</label>
+            <div>
+              <select class="form-control" id="sem" name="sem" [(ngModel)]="sem">
         <option value="1">1 st semester</option>
         <option value="2">2 nd semester</option>
       
       </select>
-    </div>
-    </div>
-   
-    
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="jumbotron">
+
+          <p>Enter cose</p>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>cose code</th>
+                <th>cose name</th>
+                <th>credit</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" name="subject_code" [(ngModel)]="subject_code1"><br></td>
+                <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name1"><br></td>
+                <td><input type="text" name="credit" [(ngModel)]="credit1"><br></td>
+
+              </tr>
+              <tr>
+                <td><input type="text" name="subject_code" [(ngModel)]="subject_code1"><br></td>
+                <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name1"><br></td>
+                <td><input type="text" name="credit" [(ngModel)]="credit1"><br></td>
+
+              </tr>
+
+
+
+
+            </tbody>
+          </table>
+          <!--</div>-->
+          <button type="submit" class="btn btn-primary">submit</button>
+
+        </div>
+
+
+
+
+      </div>
+      <!--f1-->
+    </form>
+
   </div>
-
-     </div>
-
-    <div>
-
-      <div class="jumbotron">
-  
-  <p>Enter cose</p>  
-       
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>cose code</th>
-        <th>cose name</th>
-        <th>credit</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><input type="text" name="subject_code" [(ngModel)]="subject_code1" ><br></td>
-        <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name1" ><br></td>
-        <td><input type="text" name="credit" [(ngModel)]="credit1" ><br></td>
-       
-      </tr>
-            <tr>
-        <td><input type="text" name="subject_code" [(ngModel)]="subject_code1" ><br></td>
-        <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name1" ><br></td>
-        <td><input type="text" name="credit" [(ngModel)]="credit1" ><br></td>
-       
-      </tr>
-      
-     
-       
-  
-    </tbody>
-  </table>
-<!--</div>-->
-<button type="submit" class="btn btn-primary">submit</button>
- 
-    </div>
-
- 
-  
-
-  </div><!--f1-->
-     </form>
-  
-</div>
 </div>

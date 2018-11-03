@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
 import { FacultyService } from '../../shared_service/faculty.service';
 import {StudentService} from '../../shared_service/student.service';
 import { Faculty } from '../../faculty';
@@ -14,6 +14,7 @@ export class UserRegisterComponent implements OnInit {
   private digreeList;
   private students= new Student();
   private studentList:Student[]=[];
+  @ViewChild('myForm') formValues;
   
    name: string;
    email: string;
@@ -95,6 +96,8 @@ saveStudent(){
   },err=>{
     console.log(err);
   })
+
+  this.formValues;
 
 }
 

@@ -13,5 +13,8 @@ saveSubject(subject:any){
   return this.http.post<any>("/api/addSubject/", subject);
 
 }
+getSubject(digree: number, year: number, sem: number){
+  return this.http.get<any>("api/digreeProgram/"+digree+"/"+year+"/"+sem);
+}
 
 }
