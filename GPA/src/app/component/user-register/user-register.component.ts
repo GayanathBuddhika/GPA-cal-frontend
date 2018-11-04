@@ -1,6 +1,7 @@
-import { Component, OnInit, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild, OnDestroy} from '@angular/core';
 import { FacultyService } from '../../shared_service/faculty.service';
 import {StudentService} from '../../shared_service/student.service';
+import { Subscription } from 'rxjs';
 import { Faculty } from '../../faculty';
 import { Student } from '../../student';
 @Component({
@@ -15,7 +16,7 @@ export class UserRegisterComponent implements OnInit {
   private students= new Student();
   private studentList:Student[]=[];
   @ViewChild('myForm') formValues;
-  
+   private sub: Subscription;
    name: string;
    email: string;
    ep_num:string;
@@ -84,7 +85,7 @@ saveStudent(){
   this.students.login_num=this.login_num;
   this.studentList.push(this.students);
   console.log(this.studentList);
-  this.studentService.enterStudent(this.studentList).subscribe((data)=>{
+  this.sub=this.studentService.enterStudent(this.studentList).subscribe((data)=>{
     console.log(data);
   },err=>{
     console.log(err);
@@ -96,10 +97,14 @@ saveStudent(){
   },err=>{
     console.log(err);
   })
+  this.studentList.splice(0,1);
 
-  this.formValues;
+  this.formValues.reset();
 
 }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
 
 }
