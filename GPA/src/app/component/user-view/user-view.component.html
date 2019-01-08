@@ -1,0 +1,86 @@
+
+<div class="container">
+  <h2>Registered User Form</h2>
+  <div class="jumbotron">
+    <form action="" #frm="ngForm" (ngSubmit)="getStudent()">
+    <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
+    <div class="col-sm-10">
+       <select class="form-control" id="sel1" name="faculty" (change)="getDepartments($event.target.value)" >
+      <option  >select faculty</option>
+      <option *ngFor="let faculty of facultyList" [value]="faculty.id"   > {{faculty.faculty_name}}</option>
+      </select>
+    </div>
+   </div>
+   <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="sel2" (change)="getDegreePro($event.target.value)">
+         <option  >select department</option>
+        <option *ngFor="let department of departmentList" [value]="department.id"  > {{department.dep_name}}</option>
+      </select>
+    </div>
+    </div>
+    <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Digree Program</label>
+    <div class="col-sm-10">
+       <select class="form-control" id="sel3"   (change)="gaya($event.target.value)" >
+          <option  >select digreeprogram</option>
+        <option *ngFor="let digree of digreeList" [value]="digree.id">{{digree.digpro_name}}</option>
+       
+      </select>
+    </div>
+    </div>
+    <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Badge Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="badge"[(ngModel)]="badge" name="badge" >
+    </div>
+  </div>
+
+    <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary"   >ok</button>
+    </div>
+  </div>
+     </form>
+  </div>
+
+</div>
+
+<div class="container">
+ <div class="jumbotron">
+<form #myForm4="ngForm" >
+  <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">EpNum</th>
+      <th scope="col">Name</th>
+       <th scope="col">Email</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentList">
+      
+      <td>{{student.epnum}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.email}}</td>
+    </tr>
+
+  </tbody>
+</table>
+ 
+
+  
+  
+</form>
+
+
+
+
+ <!--</div>
+<button routerLink="userdata">user details</button>
+
+</div>-->

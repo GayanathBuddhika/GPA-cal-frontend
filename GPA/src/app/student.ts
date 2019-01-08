@@ -4,7 +4,11 @@ export class Student{
     name:string;
     email:string;
     badge:string;
-    ep_num:string;
+    epnum:string;
     login_num:string;
+    faculty:string;
+    department:string;
+    dpro:string;
+    
 
 }

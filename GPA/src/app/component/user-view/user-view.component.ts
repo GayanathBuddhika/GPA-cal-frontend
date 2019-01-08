@@ -7,19 +7,19 @@ import {Department} from '../../department';
 import {Digree } from '../../digree';
 import { Student } from '../../student';
 @Component({
-  selector: 'app-user-register',
-  templateUrl: './user-register.component.html',
-  styleUrls: ['./user-register.component.css']
+  selector: 'app-user-view',
+  templateUrl: './user-view.component.html',
+  styleUrls: ['./user-view.component.css']
 })
-export class UserRegisterComponent implements OnInit {
-  private facultyList;
+export class UserViewComponent implements OnInit {
+ private facultyList;
   private departmentList;
   private digreeList;
   private facultys = new Faculty ;
   private departments = new Department;
   private dpros = new Digree;
   private students= new Student();
-  private studentList:Student[]=[];
+  private studentList;
   @ViewChild('myForm') formValues;
   //  private sub: Subscription;
    name: string;
@@ -30,6 +30,8 @@ export class UserRegisterComponent implements OnInit {
    faculty:string;
    department:string;
    dpro:string;
+
+   
 
   constructor(
     private facultyService: FacultyService ,
@@ -102,48 +104,44 @@ export class UserRegisterComponent implements OnInit {
       })
     }
   }
+  getStudent(){
+    this.faculty=this.facultys.faculty_name;
+    this.department=this.departments.dep_name;
+    this.dpro=this.dpros.digpro_name;
 
-  createNumber(){
-   this.studentService.genarateNumber().subscribe((data)=>{
-    console.log(data);
-    this.login_num=data;
-  },err=>{
-    console.log(err);
-  })
+    this.studentService.getStudents(this.faculty,this.department,this.dpro,this.badge).subscribe(data =>{
+     this.studentList=data;
+     console.log(data);
+    },err =>{
+      console.log(err);
+    })
   }
+ 
+// saveStudent(){
 
-saveStudent(){
+//   this.students.name = this.name;
+//   this.students.email = this.email;
+//   this.students.epnum=this.epnum;
+//   this.students.badge=this.badge;
+//   this.students.login_num=this.login_num;
+//   this.studentList.push(this.students);
+//   console.log(this.studentList);
+//   this.studentService.enterStudent(this.studentList).subscribe((data)=>{
+//     console.log(data);
+//   },err=>{
+//     console.log(err);
+//   })
 
-  this.students.name = this.name;
-  this.students.email = this.email;
-  this.students.epnum=this.epnum;
-  this.students.badge=this.badge;
-  this.students.login_num=this.login_num;
-  this.students.faculty=this.facultys.faculty_name;
-  this.students.department=this.departments.dep_name;
-  this.students.dpro=this.dpros.digpro_name;
-  this.studentList.push(this.students);
-  console.log(this.studentList);
-  this.studentService.enterStudent(this.studentList).subscribe((data)=>{
-    console.log(data);
-  },err=>{
-    console.log(err);
-  })
+//   this.studentService.getEmail("user_password",this.login_num ,this.email).subscribe((data)=>{
+//     console.log(data);
 
-  this.studentService.getEmail("user_password",this.login_num ,this.email).subscribe((data)=>{
-    console.log(data);
+//   },err=>{
+//     console.log(err);
+//   })
+//   this.studentList.splice(0,1);
 
-  },err=>{
-    console.log(err);
-  })
-  this.studentList.splice(0,1);
+//   this.formValues.reset();
 
-  this.formValues.reset();
-
-}
-  // ngOnDestroy() {
-  //   this.sub.unsubscribe();
-  // }
-
+// }
 
 }

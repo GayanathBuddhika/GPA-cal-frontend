@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild, OnDestroy} from '@angular/core';
 import {FacultyService} from '../../shared_service/faculty.service';
 import{SubjectService} from '../../shared_service/subject.service';
 import {Faculty} from '../../faculty';
@@ -27,7 +27,7 @@ export class SubjectEnterComponent implements OnInit {
 
   id:number;
   name:String;
-
+ @ViewChild('myForm2') formValues;
 
   constructor(
     private facultyService: FacultyService,
@@ -93,5 +93,8 @@ getDegreePro(id) {
    },err =>{
      console.log(err);
    })
+   this.subjectList.splice(0,1);
+
+  this.formValues.reset();
   }
 }

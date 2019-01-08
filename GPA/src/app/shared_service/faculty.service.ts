@@ -20,5 +20,13 @@ export class FacultyService {
   getDegreeProgrammes(degId){
     return this.http.get<any>("api/degreeprograms/"+degId);
   }
-  
+  getafaculty(id){
+    return this.http.get<any>("api/faculty/"+id);
+  }
+  getadepartment(id){
+   return this.http.get<any>("api/getdepartments/"+id);
+  }
+  getDpro(id){
+    return this.http.get<any>("api/dpro/"+id);
+  }
 }

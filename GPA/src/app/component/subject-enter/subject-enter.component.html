@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <form #frm="ngForm" (ngSubmit)="addSubject()">
+    <form #frm="ngForm" >
       <div>
 
         <div class="jumbotron">
@@ -62,7 +62,9 @@
         </div>
 
       </div>
+    </form>
 
+    <form #myForm2="ngForm" (ngSubmit)="addSubject()">
       <div>
 
         <div class="jumbotron">
@@ -80,18 +82,12 @@
             </thead>
             <tbody>
               <tr>
-                <td><input type="text" name="subject_code" [(ngModel)]="subject_code1"><br></td>
-                <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name1"><br></td>
-                <td><input type="text" name="credit" [(ngModel)]="credit1"><br></td>
+                <td><input type="text" name="subject_code" [(ngModel)]="subject_code"><br></td>
+                <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name"><br></td>
+                <td><input type="text" name="credit" [(ngModel)]="credit"><br></td>
 
               </tr>
-              <tr>
-                <td><input type="text" name="subject_code" [(ngModel)]="subject_code1"><br></td>
-                <td><input type="text" name="subject_name" size="50" [(ngModel)]="subject_name1"><br></td>
-                <td><input type="text" name="credit" [(ngModel)]="credit1"><br></td>
-
-              </tr>
-
+              
 
 
 
@@ -106,7 +102,7 @@
 
 
       </div>
-      <!--f1-->
+      
     </form>
 
   </div>

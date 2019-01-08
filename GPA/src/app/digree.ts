@@ -1,6 +1,6 @@
 import{Department} from './department';
 export class Digree {
     id: Number;
-    name: String;
+    digpro_name: string;
     department: Department;
 }

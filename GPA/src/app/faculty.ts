@@ -1,4 +1,4 @@
 export class Faculty {
     id: Number;
-    name: String;
+    faculty_name: string;
 }

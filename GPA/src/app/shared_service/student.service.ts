@@ -8,6 +8,12 @@ import {Student} from 'src/app/student';
 export class StudentService {
 
   constructor(private http : HttpClient) { }
+  getStudent(epnum: string){
+     return this.http.get<any>("api/getStudent/"+epnum);
+  }
+  getStudents(faculty : string,department: string, dpro: string,badge:string){
+    return this.http.get<any>("api/getStudents/"+faculty+"/"+department+"/"+dpro+"/"+badge);
+  }
   genarateNumber(){
    return this.http.get<any>("api/students/password");
   }

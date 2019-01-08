@@ -1,84 +1,64 @@
 <div class="container">
   <div class="row">
-     <div class="col-sm-5"> 
-      
-      <div class="jumbotron">
-    <form action="" #frm="ngForm">
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Faculty</label>
-    <div >
-       <select class="form-control" id="sel1" (change)="getDepartments($event.target.value)">
-      <option *ngFor="let faculty of facultyList" [value]="faculty.id"  > {{faculty.faculty_name}}</option>
-      </select>
-    </div>
-   </div>
-   <div class="form-group ">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
-    <div >
-      <select class="form-control" id="sel2" (change)="getDigreePro($event.target.value)">
-        <option *ngFor="let department of departmentList" [value]="department.id">{{department.dep_name}} </option>
-      </select>
-    </div>
-    </div>
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Digree Program</label>
-    <div >
-       <select class="form-control" id="sel3">
-        <option *ngFor="let digreePro of digreeProList">{{digreePro.digpro_name}}</option>
-       
-      </select>
-    </div>
-    </div>
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Year</label>
-    <div >
-       <select class="form-control" id="sel3">
-        <option>1 st year</option>
-        <option>2 nd year</option>
-        <option>3 rd year</option>
-        <option>4 th year</option>
-      </select>
-    </div>
-    </div>
-    <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">semester</label>
-    <div >
-       <select class="form-control" id="sel3">
-        <option>1 st semester</option>
-        <option>2 nd semester</option>
-      
-      </select>
-    </div>
-    </div>
-     </form>
-  </div>
-
-     </div>
-
-    <div class="col-sm-7">
+     
+    <div class="col-sm-12">
 
       <div class="jumbotron">
   
-  <p>Your result</p>            
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Cose code</th>
-        <th>Cose name</th>
-        <th>Result</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>IS30214</td>
-        <td>abcdaasssssssssssssssssssssssssssssssssssssssssssssss</td>
-        <td>A+</td>
-       
-      </tr>
+  <p>Your result</p>  
+ <form #frm="ngForm" (ngSubmit)="getresults()">
+   
+   <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Year</label>
+            <div>
+              <select class="form-control" id="year" name="year" [(ngModel)]="year">
+        <option value="1">1 st year</option>
+        <option value="2">2 nd year</option>
+        <option value="3">3 rd year</option>
+        <option value="4">4 th year</option>
+      </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">semester</label>
+            <div>
+              <select class="form-control" id="sem" name="sem" [(ngModel)]="sem">
+        <option value="1">1 st semester</option>
+        <option value="2">2 nd semester</option>
       
-    </tbody>
-  </table>
+      </select>
+            </div>
+          </div> 
+<div class="form-group">  
+          <label for="inputEmail3" class="col-sm-2 col-form-label">epnum</label>
+          <input type="text" name="ep_num" [(ngModel)]="ep_num">
+          </div>
+          
+
+           <button type="submit" class="btn btn-primary">submit</button> 
+
+
+ </form>
+          
+  <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Subject</th>
+      <th scope="col">Grade</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of resultList">
+      
+      <td>{{result.studentSubject.subject.subject_name}}</td>
+      <td>{{result.grade}}</td>
+      
+    </tr>
+
+  </tbody>
+</table>
 <!--</div>-->
 
     </div>
